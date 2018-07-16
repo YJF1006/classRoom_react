@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-16 14:33:05
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-16 17:19:46
+* @Last Modified time: 2018-07-16 20:24:50
 */
 import React,{Component} from 'react';
 import './index.css';
@@ -13,10 +13,17 @@ export default class HomeHeader extends Component{
 		super();
 		this.state = {isShow:false};  //是否显示ul
 	}
+	//显示事件的点击
 	handleShow = ()=>{
 		this.setState({
 			isShow:!this.state.isShow   //原来的取反
 		})
+	}
+	//选择课程事件的点击
+	handlechoose =(event)=>{
+		let type = event.target.getAttribute('type');   //拿到type属性值
+		this.props.chooseLesson(type);   //把拿到的type传给父级的函数
+		this.handleShow();   //点击(把值传出去)之后，列表隐藏
 	}
 	render(){
 		return(
@@ -36,7 +43,7 @@ export default class HomeHeader extends Component{
 					{  //三元表达式,根据isShow判断是否显示
 						this.state.isShow?
 							<CSSTransition timeout={1000} classNames='fadeIn'>
-								<ul className='menu-list'>
+								<ul className='menu-list' onClick={this.handlechoose}>
 									<li type='1'>Node课程培训</li>
 									<li type='2'>Html</li>
 									<li type='3'>视频课程</li>
