@@ -1,0 +1,49 @@
+.home-header{
+	background: #2a2a2a;
+	height: 56px;
+	position: fixed;
+	top:0;
+	left:0;	
+	width: 100%;
+	.header-menu{
+		display: flex;
+		justify-content: space-between;   //行 justify-content-->内容对齐 space-between-->平均分布在该行上,相邻的间隔相等
+		align-items: center;  //列  设置盒子在侧抽方向上的对齐方式
+		img{
+			height: 57px;
+			margin-left: 10px;
+		}
+		div{margin-right: 10px;}
+		i{
+			color:#fff;
+		}
+	}
+	.menu-list{
+		position:absolute;
+		top:56px;
+		left:0;
+		width: 100%;
+		background: #2a2a2a;
+		li{
+			border-top:1px solid #464646;
+			height: 43px;
+			line-height: 43px;
+			text-align: center;
+			color:#fff;
+		}
+	}
+}
+.fade-enter{
+  opacity: .1;
+}
+.fade-enter-active{
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.fade-exit{
+  opacity: 1;
+}
+.fade-exit-active{
+  opacity: .1;
+  transition: opacity 500ms ease-in-out;
+}
