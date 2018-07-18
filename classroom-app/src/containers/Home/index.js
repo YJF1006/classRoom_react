@@ -1,18 +1,20 @@
 /*Home组件的index*/
 import React,{Component} from 'react';
-import HomeHeader from '../../components/HomeHeader/index.js';
 import {connect} from 'react-redux';  //引入connect函数
-import * as action from '../../redux/actions/home';   //引入home的action
-//{setCurrentLesson:function}
+import {Link} from 'react-router-dom';
+
 import Swiper from '../../components/Swiper/index.js';   //引入系统下载的轮播图组件
 import ScrollList from '../../components/ScrollList/index.js';
+import HomeHeader from '../../components/HomeHeader/index.js';
+import * as action from '../../redux/actions/home';   //引入home的action   {setCurrentLesson:function}
 import './index.css';
-
 //组件的UI
  class Home extends Component{
 	chooseLesson = (type)=>{
 		//console.log(type);
+		//只改变的类型，没有重置数据
 		this.props.setCurrentLesson(type);  //调用映射后得属性，里面有state，action两个映射的,setCurrentLesson为映射后的action里面的
+		this.props.getLesson();   //重新获取当前类型数据    类型一改变，要重新获取课程数据，因为不同类型的对应不同的数据
 	}
 	componentDidMount(){
 		//判断redux中是否存在了数据，如果有则不去获取数据
@@ -50,15 +52,17 @@ import './index.css';
 						<Swiper data={this.props.home.sliders}></Swiper>
 						<div className='lesson-list'>
 							<h3><i className='iconfont icon-kecheng-copy'></i>全部课程</h3>
-						{/*课程列表*/}
+						{/*课程列表,*/}
 							{
 								lessonList.length?
 									lessonList.map((item,index)=>(
-										<div key={index} className='lesson-list-item'>
-											<img src={item.url} alt=""/>
-											<p>{item.title}</p>
-											<span>{item.price}</span>
-										</div>
+										<Link to={{pathname:'/detail',state:item}} key={index}>  {/*跳转详情页，并且带上数据item*/}
+											<div className='lesson-list-item'>
+												<img src={item.url} alt=""/>
+												<p>{item.title}</p>
+												<span>{item.price}</span>
+											</div>
+										</Link>
 									))
 								: 	
 									<div>正在加载</div>

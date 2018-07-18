@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-16 21:52:04
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-17 17:48:59
+* @Last Modified time: 2018-07-18 19:37:04
 */
 let express = require("express");
 let app = express();
@@ -29,5 +29,6 @@ app.get('/slider',function(req,res){  //轮播图
 app.get('/lessonList/:type/:offset/:limit',function(req,res){   //获取课程
 	res.json(lessonList);
 })
+
 
 app.listen(1006);

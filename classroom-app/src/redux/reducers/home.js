@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-16 18:19:20
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-18 10:26:59
+* @Last Modified time: 2018-07-18 19:32:34
 */
 
 /**home里面放的是首页所有的信息*/
@@ -21,9 +21,17 @@ let initState = {
 export default function(state=initState,action){
 	//传进来的action 有两个属性 1.type 2.val
 	switch(action.type){
-		case Types.SET_CURRENT_LESSON:
+		case Types.SET_CURRENT_LESSON:   //当类型变化了，那么redux里面存的数组也要清空，因为不是另一个类型的数据
 		//把state展开，用新的currentLesson盖掉老的，而且原来的不相关的不变
-			return {...state,currentLesson:action.val}
+			return {
+				...state,
+				currentLesson:action.val,
+				lesson:{
+					...state.lesson,
+					lessonList:[],
+					offset:0
+				}
+			}
 		case Types.GET_SLIDERS:
 			return {...state,sliders:action.sliders}
 		case Types.GET_LESSONS:

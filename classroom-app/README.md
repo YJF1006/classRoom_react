@@ -45,8 +45,11 @@
         解决方法
         给父组件的这个生命周期里面调用一个 this.forceUpdata()   强制刷新
     5. 为了防止切换回来自动回到最顶端，采用记录滚动条位置
-        在Home组件即将要销毁的时候记录下滚动条的位置（sessionStorage。setItem()）
-        在Home组件强制刷新的时候，取出记录的位置
+        在Home组件即将要销毁(componentWillUnmount)的时候记录下滚动条的位置（sessionStorage。setItem()）
+        在Home组件(componentDidMount)强制刷新(this.forceUpdata() )的时候，取出记录的位置
+    6.详情页中，解构传过来的this,props.location.state的时候,通过主页点进去对着呢，，直接在url输入detail会报错  
+        原因是:当直接输入的时候，那么state会是undefined,所以解构会报错，
+        解决方法：   let {} = state || {}    //给解构的加一个或者{}
  */
 
 /** 四：一般书写代码的顺序
