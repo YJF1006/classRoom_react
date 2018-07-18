@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-15 17:17:24
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-18 19:40:58
+* @Last Modified time: 2018-07-18 20:57:00
 */
 
 import React from 'react';   //引入react
@@ -15,6 +15,7 @@ import Lesson from './containers/Lesson/index.js';
 import Profile from './containers/Profile/index.js';
 import App from './containers/App.js';
 import Detail from './containers/Detail/index.js';
+import Login from './components/Login/index.js';
 //引入store
 import store from './redux/store.js';
 //引入样式
@@ -30,6 +31,7 @@ render(
 					<Route path={'/lesson'} component={Lesson}></Route>
 					<Route path={'/profile'} component={Profile}></Route>
 					<Route path={'/detail'} component={Detail}></Route>
+					<Route path={'/login'} component={Login}></Route>
 				</Switch>
 			</App>
 		</Router>

@@ -50,6 +50,17 @@
     6.详情页中，解构传过来的this,props.location.state的时候,通过主页点进去对着呢，，直接在url输入detail会报错  
         原因是:当直接输入的时候，那么state会是undefined,所以解构会报错，
         解决方法：   let {} = state || {}    //给解构的加一个或者{}
+    7. 登录页面没有下面的导航栏，此时不要去App.js里面进行判断了 ，直接写登录页面的样式，盖住就行了（技巧）
+        解决方法：  1.绝对定位，上下左右均为0；       2.层级最高；      3.背景颜色为白色透明
+        {
+            position：absolute;
+            上下左右全为0；
+            z-index:100;
+            background:#fff
+        }
+    8. 只有通过路由渲染的页面才有history属性
+        解决 : 要想与history 属性，用withRouter(react-router-dom系统库里面的)包装一下
+        用法 : export default withRouter(需要history的组件名称)
  */
 
 /** 四：一般书写代码的顺序
