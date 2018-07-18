@@ -14,11 +14,26 @@ import './index.css';
 		//console.log(type);
 		this.props.setCurrentLesson(type);  //调用映射后得属性，里面有state，action两个映射的,setCurrentLesson为映射后的action里面的
 	}
-	componentWillMount(){
-		this.props.getSlider();
-		this.props.getLesson();
+	componentDidMount(){
+		//判断redux中是否存在了数据，如果有则不去获取数据
+		if(this.props.home.lesson.lessonList.length === 0){  //没有存数据的时候才去获取数据
+			this.props.getSlider();
+			this.props.getLesson();
+		}
+		//让组件强制更新
+		if(this.props.home.lesson.lessonList.length > 0){  //当存有数据的时候，强制让父组件强制刷新 ，这样子组件也就可以更新了
+			//将记录好的滚动条状态取出来赋给content元素   在组件将要销毁的时候记录
+			let value = JSON.parse(sessionStorage.getItem('homeLocation'));
+			this.refs.scroll.scrollTop = value;
+			this.forceUpdate();    //强制更新
+			
+		}
 	}
-	loadMore = ()=>{
+	componentWillUnmount(){  //组件将要销毁的时候，记住滚动条的位置
+		let value = JSON.stringify(this.refs.scroll.scrollTop);
+		sessionStorage.setItem('homeLocation',value);
+	}
+	handleLoadMore = ()=>{
 		this.props.getLesson();
 	}
 	render(){
