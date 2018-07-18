@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-15 17:17:24
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-16 20:13:24
+* @Last Modified time: 2018-07-16 21:40:24
 */
 
 import React from 'react';   //引入react
@@ -17,7 +17,7 @@ import App from './containers/App.js';
 //引入store
 import store from './redux/store.js';
 //引入样式
-import './common/index.css';
+import './common/index.css';  //引入公共的样式
 window._store = store;   //把store挂载在window上
 
 render(
