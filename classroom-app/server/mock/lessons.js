@@ -1,6 +1,6 @@
 module.exports = {
   hasMore: true,
-  list: [
+  lessons: [
     {
       id: 1,
       title: 'React全栈架构',

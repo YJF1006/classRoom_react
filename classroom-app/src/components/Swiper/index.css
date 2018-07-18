@@ -1,1 +1,1 @@
-.swiper{width:100%;position:relative}.swiper .dots{position:absolute;bottom:10px;left:0;width:100%;display:flex;justify-content:center}.swiper .dots span{width:5px;height:5px;display:block;margin:0 5px;border-radius:50%;background:#fff}.swiper .dots .active{background:#464646}
+.swiper{width:100%;height:150px;position:relative}.swiper .dots{position:absolute;bottom:10px;left:0;width:100%;display:flex;justify-content:center}.swiper .dots span{width:5px;height:5px;display:block;margin:0 5px;border-radius:50%;background:#fff}.swiper .dots .active{background:#464646}

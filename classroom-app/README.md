@@ -43,8 +43,9 @@
  * 1. 存入redux
     - 先定义redux中的数据长什么样子（在reducer文件夹里面）
     - 写有服务端接口  （在server.js）
-    - 获取接口的方法  fetch  axious 获取数据 
-    - 通过action将获取的数据发送到reducer
-    - 通过reducer改变redux中的状态
+    - 获取接口的方法(api文件中) 
+    - 通过action将获取的数据发送到reducer(先写action-types,再写action,再写reducer )   fetch  axious 获取数据 
+    - 通过reducer改变redux中的状态  
+    - 最后在组件中调用action里面的方法
  */
 
