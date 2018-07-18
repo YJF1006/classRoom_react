@@ -5,6 +5,7 @@ import {connect} from 'react-redux';  //引入connect函数
 import * as action from '../../redux/actions/home';   //引入home的action
 //{setCurrentLesson:function}
 import Swiper from '../../components/Swiper/index.js';   //引入系统下载的轮播图组件
+import ScrollList from '../../components/ScrollList/index.js';
 import './index.css';
 
 //组件的UI
@@ -15,31 +16,42 @@ import './index.css';
 	}
 	componentWillMount(){
 		this.props.getSlider();
-		this.props.getLesson()
+		this.props.getLesson();
+	}
+	loadMore = ()=>{
+		this.props.getLesson();
 	}
 	render(){
 		let {hasMore,isLoading,lessonList} = this.props.home.lesson;
 		return(
 			<div>
 				<HomeHeader chooseLesson={this.chooseLesson}></HomeHeader>
-				<div className='content'>  
-					<Swiper data={this.props.home.sliders}></Swiper>
-					<div className='lesson-list'>
-						<h3><i className='iconfont icon-kecheng-copy'></i>全部课程</h3>
-					{/*课程列表*/}
-						{
-							lessonList.length?
-								lessonList.map((item,index)=>(
-									<div key={index} className='lesson-list-item'>
-										<img src={item.url} alt=""/>
-										<p>{item.title}</p>
-										<span>{item.price}</span>
-									</div>
-								))
-							: 	
-								<div>正在加载</div>
-						}
-					</div>
+				<div className='content' ref='scroll'>  
+					<ScrollList element={this.refs.scroll}
+								isLoading={isLoading}
+								hasMore={hasMore}
+								loadMore = {this.handleLoadMore}
+					>
+						<Swiper data={this.props.home.sliders}></Swiper>
+						<div className='lesson-list'>
+							<h3><i className='iconfont icon-kecheng-copy'></i>全部课程</h3>
+						{/*课程列表*/}
+							{
+								lessonList.length?
+									lessonList.map((item,index)=>(
+										<div key={index} className='lesson-list-item'>
+											<img src={item.url} alt=""/>
+											<p>{item.title}</p>
+											<span>{item.price}</span>
+										</div>
+									))
+								: 	
+									<div>正在加载</div>
+							}
+						</div>
+
+						<button onClick = {this.loadMore}>获取更多</button>	
+					</ScrollList>
 				</div>	
 			</div>
 		)

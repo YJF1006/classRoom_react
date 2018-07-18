@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-17 14:58:13
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-17 16:15:55
+* @Last Modified time: 2018-07-18 11:34:12
 */
 /*轮播图组件*/
 import React from 'react'
