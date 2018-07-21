@@ -2,7 +2,7 @@
 * @Author: duqinzhi
 * @Date:   2018-07-15 17:17:24
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-18 20:57:00
+* @Last Modified time: 2018-07-19 08:36:03
 */
 
 import React from 'react';   //引入react
@@ -16,6 +16,7 @@ import Profile from './containers/Profile/index.js';
 import App from './containers/App.js';
 import Detail from './containers/Detail/index.js';
 import Login from './components/Login/index.js';
+import Reg from './components/Reg/index.js'
 //引入store
 import store from './redux/store.js';
 //引入样式
@@ -32,6 +33,7 @@ render(
 					<Route path={'/profile'} component={Profile}></Route>
 					<Route path={'/detail'} component={Detail}></Route>
 					<Route path={'/login'} component={Login}></Route>
+					<Route path={'/reg'} component={Reg}></Route>
 				</Switch>
 			</App>
 		</Router>

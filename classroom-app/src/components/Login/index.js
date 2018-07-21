@@ -2,9 +2,10 @@
 * @Author: duqinzhi
 * @Date:   2018-07-18 20:54:46
 * @Last Modified by:   duqinzhi
-* @Last Modified time: 2018-07-18 22:05:19
+* @Last Modified time: 2018-07-19 08:43:25
 */
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 import MHeader from '../MHeader/index.js';
 import profile from '../../common/images/profile.png'
 import './index.css';
@@ -18,8 +19,8 @@ export default class Login extends Component{
 				<ul>
 					<li><input type="text" placeholder='请输入用户名'/></li>
 					<li><input type="text" placeholder='请输入密码'/></li>
-					<li><a href="" className='reg-btn'>注册</a></li>
-					<li><a href="" className='login-btn'>登录</a></li>
+					<li><Link to={'/reg'} className='reg-btn'>注册</Link></li>
+					<li><Link to={'/login'} className='login-btn'>登录</Link></li>
 				</ul>
 			</div>
 		)

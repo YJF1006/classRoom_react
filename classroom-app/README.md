@@ -61,6 +61,14 @@
     8. 只有通过路由渲染的页面才有history属性
         解决 : 要想与history 属性，用withRouter(react-router-dom系统库里面的)包装一下
         用法 : export default withRouter(需要history的组件名称)
+    9.md5 摘要算法  不可逆
+        1.任意字符串转换出来的大小都相同
+        2.不同内容转化出来的值不同
+        3.不可逆 
+    10. 测试接口
+        可以用git bash测试输入的内容如下
+            $ curl -x POST --data 'username=123&password=456' http://localhost:1006/reg
+        备注： '是发送的内容'   http后面是访问的地址
  */
 
 /** 四：一般书写代码的顺序
